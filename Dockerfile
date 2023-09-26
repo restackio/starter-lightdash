@@ -28,8 +28,6 @@ COPY lightdash.yml /usr/app/lightdash.yml
 ENV LIGHTDASH_CONFIG_FILE /usr/app/lightdash.yml
 # Create the /usr/app/dbt directory
 RUN mkdir -p /usr/app/dbt
-COPY ./dbt_project.yml /usr/app/dbt/dbt_project.yml
-COPY ./profiles /usr/app/profiles
 COPY ./lightdash-entrypoint.sh /usr/bin/lightdash-entrypoint.sh
 RUN chmod +x /usr/bin/lightdash-entrypoint.sh
 
