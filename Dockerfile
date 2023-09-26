@@ -28,6 +28,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY lightdash.yml /usr/app/lightdash.yml
 ENV LIGHTDASH_CONFIG_FILE /usr/app/lightdash.yml
 COPY ./lightdash-entrypoint.sh /usr/bin/lightdash-entrypoint.sh
+RUN chmod +x /usr/bin/lightdash-entrypoint.sh
+
 # Expose the necessary port
 EXPOSE 8080
 
