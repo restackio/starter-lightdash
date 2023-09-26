@@ -29,6 +29,8 @@ ENV LIGHTDASH_CONFIG_FILE /usr/app/lightdash.yml
 
 # Run backend
 COPY ./prod-entrypoint.sh /usr/bin/prod-entrypoint.sh
+RUN chmod +x /usr/bin/prod-entrypoint.sh
+
 
 EXPOSE 8080
 ENTRYPOINT ["/usr/bin/prod-entrypoint.sh"]
