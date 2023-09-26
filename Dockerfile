@@ -27,7 +27,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY lightdash.yml /usr/app/lightdash.yml
 ENV LIGHTDASH_CONFIG_FILE /usr/app/lightdash.yml
 
-# Expose the necessary port
+# Run backend
+COPY ./docker/prod-entrypoint.sh /usr/bin/prod-entrypoint.sh
+
 EXPOSE 8080
-# Entry point for running Lightdash
-CMD ["lightdash", "start"]
+ENTRYPOINT ["/usr/bin/prod-entrypoint.sh"]
+CMD ["yarn", "workspace", "backend", "start"]
