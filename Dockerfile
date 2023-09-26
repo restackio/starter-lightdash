@@ -14,7 +14,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ENV NODE_ENV production
 ENV LIGHTDASH_LOG_LEVEL=info
 ENV LIGHTDASH_WORKER_CONCURRENCY=4
-ENV LIGHTDASH_API_PREFIX=/api/v1
 ENV LIGHTDASH_DISABLE_FEATURE=explore
 ENV LIGHTDASH_ENABLE_SIGNUP=true
 # Install essential dependencies
@@ -27,6 +26,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Set production config
 COPY lightdash.yml /usr/app/lightdash.yml
 ENV LIGHTDASH_CONFIG_FILE /usr/app/lightdash.yml
+# Create the /usr/app/dbt directory
+RUN mkdir -p /usr/app/dbt
 COPY ./lightdash-entrypoint.sh /usr/bin/lightdash-entrypoint.sh
 RUN chmod +x /usr/bin/lightdash-entrypoint.sh
 
