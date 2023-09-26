@@ -26,13 +26,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Set production config
 COPY lightdash.yml /usr/app/lightdash.yml
 ENV LIGHTDASH_CONFIG_FILE /usr/app/lightdash.yml
-# Create the /usr/app/dbt directory
-RUN mkdir -p /usr/app/dbt
-COPY ./lightdash-entrypoint.sh /usr/bin/lightdash-entrypoint.sh
-RUN chmod +x /usr/bin/lightdash-entrypoint.sh
 
 # Expose the necessary port
 EXPOSE 8080
-
-# Entry point for running Lightdash backend
-ENTRYPOINT ["/usr/bin/lightdash-entrypoint.sh"]
+# Entry point for running Lightdash
+CMD ["lightdash", "start"]
