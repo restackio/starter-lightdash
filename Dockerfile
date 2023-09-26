@@ -28,7 +28,7 @@ COPY lightdash.yml /usr/app/lightdash.yml
 ENV LIGHTDASH_CONFIG_FILE /usr/app/lightdash.yml
 
 # Run backend
-COPY ./docker/prod-entrypoint.sh /usr/bin/prod-entrypoint.sh
+COPY ./prod-entrypoint.sh /usr/bin/prod-entrypoint.sh
 
 EXPOSE 8080
 ENTRYPOINT ["/usr/bin/prod-entrypoint.sh"]
