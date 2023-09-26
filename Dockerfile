@@ -27,9 +27,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Set production config
 COPY lightdash.yml /usr/app/lightdash.yml
 ENV LIGHTDASH_CONFIG_FILE /usr/app/lightdash.yml
-
+COPY ./lightdash-entrypoint.sh /usr/bin/lightdash-entrypoint.sh
 # Expose the necessary port
 EXPOSE 8080
 
 # Entry point for running Lightdash backend
-CMD ["lightdash", "start"]
+ENTRYPOINT ["/usr/bin/lightdash-entrypoint.sh"]
