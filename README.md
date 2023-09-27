@@ -1,4 +1,4 @@
-#Lightdash Restack repository
+# Lightdash Restack repository
 
 This is the defaultLightdash repository to get you started for generating preview environments from a custom Lightdash image with Restack github application.
 
