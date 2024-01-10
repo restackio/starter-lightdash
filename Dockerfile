@@ -1,5 +1,5 @@
 # Use a lightweight base image
-FROM lightdash/lightdash:latest
+FROM lightdash/lightdash:0.927.2
 WORKDIR /usr/app
 
 # Install essential dependencies
